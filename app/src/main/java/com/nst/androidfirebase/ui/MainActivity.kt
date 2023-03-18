@@ -1,4 +1,4 @@
-package com.nst.androidfirebase
+package com.nst.androidfirebase.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
