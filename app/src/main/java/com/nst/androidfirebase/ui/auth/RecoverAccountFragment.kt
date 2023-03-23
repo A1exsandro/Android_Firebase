@@ -5,17 +5,68 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.core.view.isVisible
+import androidx.navigation.fragment.findNavController
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 import com.nst.androidfirebase.R
+import com.nst.androidfirebase.databinding.FragmentRecoverAccountBinding
+import com.nst.androidfirebase.databinding.FragmentSignUpBinding
 
 
 class RecoverAccountFragment : Fragment() {
+
+    private var _binding: FragmentRecoverAccountBinding? = null
+    private val binding get() = _binding!!
+
+    private lateinit var auth: FirebaseAuth
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_recover_account, container, false)
+        _binding = FragmentRecoverAccountBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        auth = Firebase.auth
+        initClicks()
+    }
+
+    private fun initClicks() {
+        binding.btnRecover.setOnClickListener { checkData() }
+    }
+
+    private fun checkData() {
+        val email = binding.editEmail.toString().trim()
+
+            if (email.isNotBlank()) {
+                binding.progressBar.isVisible = true
+
+                recoverUser(email)
+            } else {
+            Toast.makeText(requireContext(), "Informe seu e-mail", Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    private fun recoverUser(email: String) {
+        auth.sendPasswordResetEmail(email)
+            .addOnCompleteListener(requireActivity()) { task ->
+                if (task.isSuccessful) {
+                    Toast.makeText(requireContext(), "Verifique seu email", Toast.LENGTH_SHORT).show()
+                } else {
+                    binding.progressBar.isVisible = false
+                }
+            }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        _binding = null
+    }
 }
