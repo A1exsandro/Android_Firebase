@@ -59,9 +59,9 @@ class RecoverAccountFragment : Fragment() {
             .addOnCompleteListener(requireActivity()) { task ->
                 if (task.isSuccessful) {
                     Toast.makeText(requireContext(), "Verifique seu email", Toast.LENGTH_SHORT).show()
-                } else {
-                    binding.progressBar.isVisible = false
                 }
+                binding.progressBar.isVisible = false
+
             }
     }
 
