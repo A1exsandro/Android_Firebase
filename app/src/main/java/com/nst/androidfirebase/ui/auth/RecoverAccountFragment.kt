@@ -45,12 +45,12 @@ class RecoverAccountFragment : Fragment() {
     private fun checkData() {
         val email = binding.editEmail.toString().trim()
 
-            if (email.isNotBlank()) {
-                binding.progressBar.isVisible = true
+        if (email.isNotBlank()) {
+            binding.progressBar.isVisible = true
 
-                recoverUser(email)
-            } else {
-            Toast.makeText(requireContext(), "Informe seu e-mail", Toast.LENGTH_SHORT).show()
+            recoverUser(email)
+        } else {
+        Toast.makeText(requireContext(), "Informe seu e-mail", Toast.LENGTH_SHORT).show()
         }
     }
 
