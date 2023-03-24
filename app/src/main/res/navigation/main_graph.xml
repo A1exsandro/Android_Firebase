@@ -11,47 +11,49 @@
         android:label="fragment_splash"
         tools:layout="@layout/fragment_splash" >
         <action
-            android:id="@+id/action_splashFragment_to_loginFragment2"
-            app:destination="@id/loginFragment2"
+            android:id="@+id/action_splashFragment_to_navigation"
+            app:destination="@id/navigation"
+            app:popUpTo="@id/splashFragment"
+            app:popUpToInclusive="true"/>
+        <action
+            android:id="@+id/action_splashFragment_to_homeFragment"
+            app:destination="@id/homeFragment"
             app:popUpTo="@id/splashFragment"
             app:popUpToInclusive="true"/>
     </fragment>
-    <fragment
-        android:id="@+id/signUpFragment"
-        android:name="com.nst.androidfirebase.ui.auth.SignUpFragment"
-        android:label="fragment_sign_up"
-        tools:layout="@layout/fragment_sign_up" >
-        <action
-            android:id="@+id/action_signUpFragment_to_homeFragment"
-            app:destination="@id/homeFragment"
-            app:popUpTo="@id/loginFragment2"
-            app:popUpToInclusive="true"/>
-    </fragment>
-    <fragment
-        android:id="@+id/loginFragment2"
-        android:name="com.nst.androidfirebase.ui.auth.LoginFragment"
-        android:label="fragment_login"
-        tools:layout="@layout/fragment_login" >
-        <action
-            android:id="@+id/action_loginFragment2_to_signUpFragment"
-            app:destination="@id/signUpFragment" />
-        <action
-            android:id="@+id/action_loginFragment2_to_recoverAccountFragment"
-            app:destination="@id/recoverAccountFragment" />
-        <action
-            android:id="@+id/action_loginFragment2_to_homeFragment"
-            app:destination="@id/homeFragment"
-            app:popUpTo="@id/loginFragment2"
-            app:popUpToInclusive="true"/>
-    </fragment>
-    <fragment
-        android:id="@+id/recoverAccountFragment"
-        android:name="com.nst.androidfirebase.ui.auth.RecoverAccountFragment"
-        android:label="fragment_recover_account"
-        tools:layout="@layout/fragment_recover_account" />
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.nst.androidfirebase.ui.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" />
+    <navigation android:id="@+id/navigation"
+        app:startDestination="@id/loginFragment2">
+        <fragment
+            android:id="@+id/loginFragment2"
+            android:name="com.nst.androidfirebase.ui.auth.LoginFragment"
+            android:label="fragment_login"
+            tools:layout="@layout/fragment_login" >
+            <action
+                android:id="@+id/action_loginFragment2_to_signUpFragment"
+                app:destination="@id/signUpFragment" />
+            <action
+                android:id="@+id/action_loginFragment2_to_recoverAccountFragment"
+                app:destination="@id/recoverAccountFragment" />
+        </fragment>
+        <fragment
+            android:id="@+id/signUpFragment"
+            android:name="com.nst.androidfirebase.ui.auth.SignUpFragment"
+            android:label="fragment_sign_up"
+            tools:layout="@layout/fragment_sign_up" />
+        <fragment
+            android:id="@+id/recoverAccountFragment"
+            android:name="com.nst.androidfirebase.ui.auth.RecoverAccountFragment"
+            android:label="fragment_recover_account"
+            tools:layout="@layout/fragment_recover_account" />
+        <action
+            android:id="@+id/action_global_homeFragment"
+            app:destination="@id/homeFragment"
+            app:popUpTo="@id/loginFragment2"
+            app:popUpToInclusive="true"/>
+    </navigation>
 </navigation>
