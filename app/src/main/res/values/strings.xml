@@ -1,5 +1,23 @@
 <resources>
     <string name="app_name">Android Firebase</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!--    Generics-->
+    <string name="label_email">E-mail</string>
+    <string name="edit_text_email">example@email.com</string>
+    <string name="label_password">password</string>
+    <string name="edit_text_password">your password</string>
+
+    <!--    Login Fragment-->
+    <string name="btn_login">Login</string>
+    <string name="text_sign_up">Sign up</string>
+    <string name="text_forget_account">Forget Account</string>
+
+    <!--    SignUp Fragment-->
+    <string name="text_create_account">Criar Conta</string>
+    <string name="btn_sign_up">Sign Up</string>
+
+    <!--    Recover Account Fragment-->
+    <string name="recover_account">Recuperar Conta</string>
+    <string name="btn_recover_account">Recover Account</string>
+
 </resources>
