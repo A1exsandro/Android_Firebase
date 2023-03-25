@@ -24,7 +24,7 @@
             android:id="@+id/editEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/edit_text_email_login"
+            android:hint="@string/edit_text_email"
             android:inputType="textEmailAddress"
             android:layout_marginTop="8dp"
             android:padding="14dp"
