@@ -14,6 +14,7 @@ import com.google.firebase.ktx.Firebase
 import com.nst.androidfirebase.R
 import com.nst.androidfirebase.databinding.FragmentRecoverAccountBinding
 import com.nst.androidfirebase.databinding.FragmentSignUpBinding
+import com.nst.androidfirebase.helper.FirebaseHelper
 
 
 class RecoverAccountFragment : Fragment() {
@@ -59,7 +60,10 @@ class RecoverAccountFragment : Fragment() {
             .addOnCompleteListener(requireActivity()) { task ->
                 if (task.isSuccessful) {
                     Toast.makeText(requireContext(), "Verifique seu email", Toast.LENGTH_SHORT).show()
+                } else {
+                    Toast.makeText(requireContext(), FirebaseHelper.validError(task.exception?.message ?: ""), Toast.LENGTH_SHORT).show()
                 }
+
                 binding.progressBar.isVisible = false
 
             }

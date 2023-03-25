@@ -1,6 +1,7 @@
 package com.nst.androidfirebase.ui.auth
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -13,6 +14,7 @@ import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import com.nst.androidfirebase.R
 import com.nst.androidfirebase.databinding.FragmentLoginBinding
+import com.nst.androidfirebase.helper.FirebaseHelper
 
 class LoginFragment : Fragment() {
 
@@ -70,6 +72,7 @@ class LoginFragment : Fragment() {
                 if (task.isSuccessful) {
                     findNavController().navigate(R.id.action_global_homeFragment)
                 } else {
+                    Toast.makeText(requireContext(), FirebaseHelper.validError(task.exception?.message ?: ""), Toast.LENGTH_SHORT).show()
                     binding.progressBar.isVisible = false
                 }
             }

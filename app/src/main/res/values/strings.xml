@@ -6,6 +6,7 @@
     <string name="edit_text_email">example@email.com</string>
     <string name="label_password">password</string>
     <string name="edit_text_password">your password</string>
+    <string name="error_generic">Ocorreu um erro, por favor tente novamente mais tarde.</string>
 
     <!--    Login Fragment-->
     <string name="btn_login">Login</string>
