@@ -37,7 +37,7 @@ class TaskAdapter(
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val task = taskList[position]
         
-//        holder.binding.te??
+        holder.binding.textDescription.text = task.description
 
         holder.binding.btnDelete.setOnClickListener { taskSelected(task, SELECT_REMOVE) }
         holder.binding.btnEdit.setOnClickListener { taskSelected(task, SELECT_EDIT) }
