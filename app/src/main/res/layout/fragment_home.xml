@@ -22,8 +22,10 @@
                 android:id="@+id/tabs"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:background="@color/purple_500"
                 android:elevation="0dp"
-                app:layout_constraintEnd_toBottomOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/ibLogout"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:tabIndicatorColor="@color/white"
@@ -49,8 +51,8 @@
         android:id="@+id/viewPager"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginBottom="4dp"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/appBarLayout2" />
 

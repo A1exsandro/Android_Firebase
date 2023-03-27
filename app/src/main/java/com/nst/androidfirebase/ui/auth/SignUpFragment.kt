@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.navigation.fragment.findNavController
+import com.google.android.material.internal.ViewUtils.hideKeyboard
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
@@ -44,11 +45,12 @@ class SignUpFragment : Fragment() {
     }
 
     private fun checkData() {
-        val email = binding.editEmail.toString().trim()
-        val password = binding.editPassword.toString().trim()
+        val email = binding.edtEmail.text.toString().trim()
+        val password = binding.editPassword.text.toString().trim()
 
-        if (email.isNotBlank()) {
-            if (password.isNotBlank()) {
+        if (email.isNotEmpty()) {
+            if (password.isNotEmpty()) {
+//                hideKeyboard()
                 binding.progressBar.isVisible = true
 
                 registerUser(email, password)
