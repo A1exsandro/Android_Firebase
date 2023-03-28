@@ -55,14 +55,10 @@ class DoingFragment : Fragment() {
                             if (task.status == 1) taskList.add(task)
                         }
 
-                        binding.textInfo.text = ""
-
                         taskList.reverse()
                         initAdapter()
-                    } else {
-                        binding.textInfo.text = "Nenhuma Tarefa cadastrada."
                     }
-
+                    tasksEmpty()
                     binding.progressBar.isVisible = false
                 }
 
@@ -70,6 +66,14 @@ class DoingFragment : Fragment() {
                     Toast.makeText(requireContext(), "Erro", Toast.LENGTH_SHORT).show()
                 }
             })
+    }
+
+    private fun tasksEmpty() {
+        binding.textInfo.text = if (taskList.isEmpty()) {
+            getText(R.string.text_task_list_empty_tasks_fragment)
+        } else {
+            ""
+        }
     }
 
     private fun initAdapter() {

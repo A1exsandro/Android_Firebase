@@ -34,4 +34,7 @@
     <string name="text_status_form_task_fragment">Status</string>
     <string name="text_btn_save_form_task_fragment">Salvar</string>
 
+    <!--    Todo Fragment-->
+    <string name="text_task_list_empty_tasks_fragment">Nenhuma tarefa cadastrada.</string>
+
 </resources>
