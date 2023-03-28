@@ -14,9 +14,10 @@ import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import com.nst.androidfirebase.R
 import com.nst.androidfirebase.databinding.FragmentLoginBinding
+import com.nst.androidfirebase.helper.BaseFragment
 import com.nst.androidfirebase.helper.FirebaseHelper
 
-class LoginFragment : Fragment() {
+class LoginFragment : BaseFragment() {
 
     private var _binding: FragmentLoginBinding? = null
     private val binding get() = _binding!!
@@ -55,6 +56,8 @@ class LoginFragment : Fragment() {
 
         if (email.isNotBlank()) {
             if (password.isNotBlank()) {
+
+                hideKeyboard()
                 binding.progressBar.isVisible = true
 
                 loginUser(email, password)

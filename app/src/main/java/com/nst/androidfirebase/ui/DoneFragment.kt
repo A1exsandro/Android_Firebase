@@ -14,11 +14,12 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
 import com.nst.androidfirebase.R
 import com.nst.androidfirebase.databinding.FragmentDoneBinding
+import com.nst.androidfirebase.helper.BaseFragment
 import com.nst.androidfirebase.helper.FirebaseHelper
 import com.nst.androidfirebase.model.Task
 import com.nst.androidfirebase.ui.adapter.TaskAdapter
 
-class DoneFragment : Fragment() {
+class DoneFragment : BaseFragment() {
 
     private var _binding: FragmentDoneBinding? = null
     private val binding get() = _binding!!

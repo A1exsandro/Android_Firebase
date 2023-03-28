@@ -16,9 +16,10 @@ import com.google.firebase.ktx.Firebase
 import com.nst.androidfirebase.R
 import com.nst.androidfirebase.databinding.FragmentLoginBinding
 import com.nst.androidfirebase.databinding.FragmentSignUpBinding
+import com.nst.androidfirebase.helper.BaseFragment
 import com.nst.androidfirebase.helper.FirebaseHelper
 
-class SignUpFragment : Fragment() {
+class SignUpFragment : BaseFragment() {
 
     private var _binding: FragmentSignUpBinding? = null
     private val binding get() = _binding!!
@@ -50,7 +51,8 @@ class SignUpFragment : Fragment() {
 
         if (email.isNotEmpty()) {
             if (password.isNotEmpty()) {
-//                hideKeyboard()
+
+                hideKeyboard()
                 binding.progressBar.isVisible = true
 
                 registerUser(email, password)

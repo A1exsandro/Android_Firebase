@@ -14,10 +14,11 @@ import com.google.firebase.ktx.Firebase
 import com.nst.androidfirebase.R
 import com.nst.androidfirebase.databinding.FragmentRecoverAccountBinding
 import com.nst.androidfirebase.databinding.FragmentSignUpBinding
+import com.nst.androidfirebase.helper.BaseFragment
 import com.nst.androidfirebase.helper.FirebaseHelper
 
 
-class RecoverAccountFragment : Fragment() {
+class RecoverAccountFragment : BaseFragment() {
 
     private var _binding: FragmentRecoverAccountBinding? = null
     private val binding get() = _binding!!
@@ -47,6 +48,8 @@ class RecoverAccountFragment : Fragment() {
         val email = binding.editEmail.toString().trim()
 
         if (email.isNotBlank()) {
+
+            hideKeyboard()
             binding.progressBar.isVisible = true
 
             recoverUser(email)

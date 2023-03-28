@@ -11,10 +11,11 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.nst.androidfirebase.R
 import com.nst.androidfirebase.databinding.FragmentFormTaskBinding
+import com.nst.androidfirebase.helper.BaseFragment
 import com.nst.androidfirebase.helper.FirebaseHelper
 import com.nst.androidfirebase.model.Task
 
-class FormTaskFragment : Fragment() {
+class FormTaskFragment : BaseFragment() {
 
     private val args: FormTaskFragmentArgs by navArgs()
 
@@ -92,6 +93,8 @@ class FormTaskFragment : Fragment() {
             val description = binding.editText.text.toString().trim()
 
             if (description.isNotEmpty()) {
+
+                hideKeyboard()
                 binding.progressBar.isVisible = true
 
                 if (newTask) task = Task()
