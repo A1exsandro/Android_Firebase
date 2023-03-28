@@ -18,9 +18,8 @@ import com.nst.androidfirebase.databinding.FragmentLoginBinding
 import com.nst.androidfirebase.databinding.FragmentSignUpBinding
 import com.nst.androidfirebase.helper.BaseFragment
 import com.nst.androidfirebase.helper.FirebaseHelper
-import com.nst.androidfirebase.helper.initToolbar
 
-class SignUpFragment : BaseFragment() {
+class SignUpFragment : Fragment() {
 
     private var _binding: FragmentSignUpBinding? = null
     private val binding get() = _binding!!
@@ -37,7 +36,7 @@ class SignUpFragment : BaseFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        initToolbar(binding.toolbar)
+//        initToolbar(binding.toolbar)
 
         auth = Firebase.auth
         initClicks()
@@ -54,7 +53,7 @@ class SignUpFragment : BaseFragment() {
         if (email.isNotEmpty()) {
             if (password.isNotEmpty()) {
 
-                hideKeyboard()
+//                hideKeyboard()
                 binding.progressBar.isVisible = true
 
                 registerUser(email, password)

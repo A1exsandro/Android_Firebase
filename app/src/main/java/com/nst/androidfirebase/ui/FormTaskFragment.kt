@@ -13,10 +13,9 @@ import com.nst.androidfirebase.R
 import com.nst.androidfirebase.databinding.FragmentFormTaskBinding
 import com.nst.androidfirebase.helper.BaseFragment
 import com.nst.androidfirebase.helper.FirebaseHelper
-import com.nst.androidfirebase.helper.initToolbar
 import com.nst.androidfirebase.model.Task
 
-class FormTaskFragment : BaseFragment() {
+class FormTaskFragment : Fragment() {
 
     private val args: FormTaskFragmentArgs by navArgs()
 
@@ -37,7 +36,7 @@ class FormTaskFragment : BaseFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        initToolbar(binding.toolbar)
+//        initToolbar(binding.toolbar)
 
         initListeners()
         getArgs()
@@ -96,7 +95,7 @@ class FormTaskFragment : BaseFragment() {
 
             if (description.isNotEmpty()) {
 
-                hideKeyboard()
+//                hideKeyboard()
                 binding.progressBar.isVisible = true
 
                 if (newTask) task = Task()
