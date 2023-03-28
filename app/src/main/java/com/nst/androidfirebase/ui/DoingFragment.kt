@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.view.isVisible
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -84,6 +85,11 @@ class DoingFragment : Fragment() {
         when (select) {
             TaskAdapter.SELECT_REMOVE -> {
                 deleteTask(task)
+            }
+            TaskAdapter.SELECT_EDIT -> {
+                val action = HomeFragmentDirections
+                    .actionHomeFragmentToFormTaskFragment2(task)
+                findNavController().navigate(action)
             }
         }
     }

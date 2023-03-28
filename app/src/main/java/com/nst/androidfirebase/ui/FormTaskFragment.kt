@@ -45,11 +45,34 @@ class FormTaskFragment : Fragment() {
             if (it != null) {
                 task = it
 
-                newTask = false
-                statusTask = task.status
-                binding.testToolbar.text = "Editando tarefa..."
+                configTask()
             }
         }
+    }
+
+    private fun configTask() {
+        newTask = false
+        statusTask = task.status
+        binding.testToolbar.text = "Editando tarefa..."
+
+        binding.editText.setText(task.description)
+        setStatus()
+    }
+
+    private fun setStatus() {
+        binding.radioGroup.check(
+            when (task.status) {
+                0 -> {
+                    R.id.rbTodo
+                }
+                1 -> {
+                    R.id.rbDoing
+                }
+                else -> {
+                    R.id.rbDone
+                }
+            }
+        )
     }
 
     private fun initListeners() {
