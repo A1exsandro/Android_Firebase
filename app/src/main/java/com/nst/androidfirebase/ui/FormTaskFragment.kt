@@ -13,6 +13,7 @@ import com.nst.androidfirebase.R
 import com.nst.androidfirebase.databinding.FragmentFormTaskBinding
 import com.nst.androidfirebase.helper.BaseFragment
 import com.nst.androidfirebase.helper.FirebaseHelper
+import com.nst.androidfirebase.helper.initToolbar
 import com.nst.androidfirebase.model.Task
 
 class FormTaskFragment : BaseFragment() {
@@ -36,6 +37,7 @@ class FormTaskFragment : BaseFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        initToolbar(binding.toolbar)
 
         initListeners()
         getArgs()

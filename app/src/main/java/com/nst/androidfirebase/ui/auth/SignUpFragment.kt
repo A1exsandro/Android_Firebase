@@ -18,6 +18,7 @@ import com.nst.androidfirebase.databinding.FragmentLoginBinding
 import com.nst.androidfirebase.databinding.FragmentSignUpBinding
 import com.nst.androidfirebase.helper.BaseFragment
 import com.nst.androidfirebase.helper.FirebaseHelper
+import com.nst.androidfirebase.helper.initToolbar
 
 class SignUpFragment : BaseFragment() {
 
@@ -36,6 +37,7 @@ class SignUpFragment : BaseFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        initToolbar(binding.toolbar)
 
         auth = Firebase.auth
         initClicks()

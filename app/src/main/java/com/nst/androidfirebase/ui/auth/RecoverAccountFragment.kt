@@ -16,6 +16,7 @@ import com.nst.androidfirebase.databinding.FragmentRecoverAccountBinding
 import com.nst.androidfirebase.databinding.FragmentSignUpBinding
 import com.nst.androidfirebase.helper.BaseFragment
 import com.nst.androidfirebase.helper.FirebaseHelper
+import com.nst.androidfirebase.helper.initToolbar
 
 
 class RecoverAccountFragment : BaseFragment() {
@@ -35,6 +36,7 @@ class RecoverAccountFragment : BaseFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        initToolbar(binding.toolbar)
 
         auth = Firebase.auth
         initClicks()
