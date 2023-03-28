@@ -91,7 +91,34 @@ class DoingFragment : Fragment() {
                     .actionHomeFragmentToFormTaskFragment2(task)
                 findNavController().navigate(action)
             }
+            TaskAdapter.SELECT_BACK -> {
+                task.status = 0
+                updateTask(task)
+            }
+            TaskAdapter.SELECT_NEXT -> {
+                task.status = 2
+                updateTask(task)
+            }
         }
+    }
+
+    private fun updateTask(task: Task) {
+        FirebaseHelper
+            .getDatabase()
+            .child("task")
+            .child(FirebaseHelper.getIdUser() ?: "")
+            .child(task.id)
+            .setValue(task)
+            .addOnCompleteListener { task ->
+                if (task.isSuccessful) {
+                    Toast.makeText(requireContext(), "Tarefa Atualizada com sucesso", Toast.LENGTH_SHORT).show()
+                } else {
+                    Toast.makeText(requireContext(), "Erro ao salva tarefa", Toast.LENGTH_SHORT).show()
+                }
+            }.addOnFailureListener {
+                binding.progressBar.isVisible = false
+                Toast.makeText(requireContext(), "Erro ao salva tarefa", Toast.LENGTH_SHORT).show()
+            }
     }
 
     private fun deleteTask(task: Task) {
