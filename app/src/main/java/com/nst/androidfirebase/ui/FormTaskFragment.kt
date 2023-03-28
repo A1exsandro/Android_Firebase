@@ -8,12 +8,15 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.nst.androidfirebase.R
 import com.nst.androidfirebase.databinding.FragmentFormTaskBinding
 import com.nst.androidfirebase.helper.FirebaseHelper
 import com.nst.androidfirebase.model.Task
 
 class FormTaskFragment : Fragment() {
+
+    private val args: FormTaskFragmentArgs by navArgs()
 
     private var _binding: FragmentFormTaskBinding? = null
     private val binding get() = _binding!!
@@ -34,6 +37,19 @@ class FormTaskFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         initListeners()
+        getArgs()
+    }
+
+    private fun getArgs() {
+        args.taskFragment.let {
+            if (it != null) {
+                task = it
+
+                newTask = false
+                statusTask = task.status
+                binding.testToolbar.text = "Editando tarefa..."
+            }
+        }
     }
 
     private fun initListeners() {

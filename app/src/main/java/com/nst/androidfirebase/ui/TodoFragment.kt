@@ -95,6 +95,11 @@ class TodoFragment : Fragment() {
             TaskAdapter.SELECT_REMOVE -> {
                 deleteTask(task)
             }
+            TaskAdapter.SELECT_EDIT -> {
+                val action = HomeFragmentDirections
+                    .actionHomeFragmentToFormTaskFragment2(task)
+                findNavController().navigate(action)
+            }
         }
     }
 
