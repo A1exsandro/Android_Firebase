@@ -73,7 +73,7 @@ class LoginFragment : BaseFragment() {
         auth.signInWithEmailAndPassword(email, password)
             .addOnCompleteListener(requireActivity()) { task ->
                 if (task.isSuccessful) {
-                    findNavController().navigate(R.id.action_global_homeFragment)
+                    findNavController().navigate(R.id.action_global_helloFragment)
                 } else {
                     Toast.makeText(requireContext(), FirebaseHelper.validError(task.exception?.message ?: ""), Toast.LENGTH_SHORT).show()
                     binding.progressBar.isVisible = false

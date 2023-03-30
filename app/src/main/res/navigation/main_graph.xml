@@ -16,10 +16,8 @@
             app:popUpTo="@id/splashFragment"
             app:popUpToInclusive="true"/>
         <action
-            android:id="@+id/action_splashFragment_to_homeFragment"
-            app:destination="@id/homeFragment"
-            app:popUpTo="@id/splashFragment"
-            app:popUpToInclusive="true"/>
+            android:id="@+id/action_splashFragment_to_helloFragment"
+            app:destination="@id/helloFragment" />
     </fragment>
     <fragment
         android:id="@+id/homeFragment"
@@ -27,13 +25,11 @@
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" >
         <action
-            android:id="@+id/action_homeFragment_to_navigation"
-            app:destination="@id/navigation"
-            app:popUpTo="@id/homeFragment"
-            app:popUpToInclusive="true"/>
-        <action
             android:id="@+id/action_homeFragment_to_formTaskFragment2"
             app:destination="@id/formTaskFragment2" />
+        <action
+            android:id="@+id/action_homeFragment_to_navigation"
+            app:destination="@id/navigation" />
     </fragment>
     <navigation android:id="@+id/navigation"
         app:startDestination="@id/loginFragment2">
@@ -60,10 +56,8 @@
             android:label="fragment_recover_account"
             tools:layout="@layout/fragment_recover_account" />
         <action
-            android:id="@+id/action_global_homeFragment"
-            app:destination="@id/homeFragment"
-            app:popUpTo="@id/loginFragment2"
-            app:popUpToInclusive="true"/>
+            android:id="@+id/action_global_helloFragment"
+            app:destination="@id/helloFragment" />
     </navigation>
     <fragment
         android:id="@+id/formTaskFragment2"
@@ -74,5 +68,14 @@
             android:name="taskFragment"
             app:argType="com.nst.androidfirebase.model.Task"
             app:nullable="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/helloFragment"
+        android:name="com.nst.androidfirebase.ui.HelloFragment"
+        android:label="fragment_hello"
+        tools:layout="@layout/fragment_hello" >
+        <action
+            android:id="@+id/action_helloFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
     </fragment>
 </navigation>
