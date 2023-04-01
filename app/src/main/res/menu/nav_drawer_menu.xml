@@ -3,29 +3,31 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:showIn="navigation_view">
 
-    <item
-        android:id="@+id/nav_home"
-        android:icon="@drawable/baseline_home_24"
-        android:title="Home" />
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/baseline_home_24"
+            android:title="Home" />
 
-    <item
-        android:id="@+id/nav_message"
-        android:icon="@drawable/baseline_message_24"
-        android:title="Message" />
+        <item
+            android:id="@+id/nav_message"
+            android:icon="@drawable/baseline_message_24"
+            android:title="Message" />
 
-    <item
-        android:id="@+id/nav_share"
-        android:icon="@drawable/baseline_share_24"
-        android:title="Share" />
+        <item
+            android:id="@+id/nav_share"
+            android:icon="@drawable/baseline_share_24"
+            android:title="Share" />
+    </group>
 
     <item android:title="Profile">
 
         <menu>
-
-            <item
-                android:id="@+id/nav_login"
-                android:title="Login"/>
-
+            <group>
+                <item
+                    android:id="@+id/nav_login"
+                    android:title="Login"/>
+            </group>
         </menu>
 
     </item>
@@ -34,17 +36,19 @@
 
         <menu>
 
-            <item
-                android:id="@+id/nav_learn"
-                android:title="Learn"/>
+            <group>
+                <item
+                    android:id="@+id/nav_learn"
+                    android:title="Learn"/>
 
-            <item
-                android:id="@+id/nav_word"
-                android:title="Word"/>
+                <item
+                    android:id="@+id/nav_word"
+                    android:title="Word"/>
 
-            <item
-                android:id="@+id/nav_last"
-                android:title="Last"/>
+                <item
+                    android:id="@+id/nav_last"
+                    android:title="Last"/>
+            </group>
 
         </menu>
 
