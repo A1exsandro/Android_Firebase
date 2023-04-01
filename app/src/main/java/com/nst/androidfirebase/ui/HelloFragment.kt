@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.navigation.fragment.findNavController
 import com.nst.androidfirebase.R
 import com.nst.androidfirebase.databinding.FragmentHelloBinding
@@ -14,12 +15,16 @@ class HelloFragment : Fragment() {
     private var _binding: FragmentHelloBinding? = null
     private val binding get() = _binding!!
 
+    lateinit var toggle: ActionBarDrawerToggle
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentHelloBinding.inflate(inflater, container, false)
         return binding.root
+
+//        toggle = ActionBarDrawerToggle(this, binding.drawerLayout, R.string.open, R.string.close )
 
     }
 
@@ -31,11 +36,9 @@ class HelloFragment : Fragment() {
 
     private fun initClicks() {
         binding.btnTask.setOnClickListener {
-            findNavController().navigate(R.id.action_helloFragment_to_homeFragment)
+            findNavController().navigate(R.id.action_helloFragment_to_menuActivity2)
         }
     }
-
-
 
 
     override fun onDestroy() {
