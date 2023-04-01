@@ -3,14 +3,10 @@ package com.nst.androidfirebase.ui
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
-import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
-import androidx.navigation.Navigation.findNavController
-import androidx.navigation.fragment.NavHostFragment
-import androidx.navigation.fragment.findNavController
 import com.google.android.material.navigation.NavigationView
 import com.nst.androidfirebase.R
 import com.nst.androidfirebase.databinding.ActivityMenuBinding
@@ -47,7 +43,7 @@ class MenuActivity : AppCompatActivity() {
                 R.id.nav_login -> Toast.makeText(applicationContext, "Clicked Home", Toast.LENGTH_SHORT).show()
                 R.id.nav_share -> Toast.makeText(applicationContext, "Clicked Home", Toast.LENGTH_SHORT).show()
                 R.id.nav_learn -> Toast.makeText(applicationContext, "Clicked Home", Toast.LENGTH_SHORT).show()
-                R.id.nav_word -> Toast.makeText(applicationContext, "Clicked Home", Toast.LENGTH_SHORT).show()
+                R.id.nav_word -> replaceFragment(WordsFragment(), it.title.toString())
                 R.id.nav_last -> Toast.makeText(applicationContext, "Clicked Home", Toast.LENGTH_SHORT).show()
             }
 
