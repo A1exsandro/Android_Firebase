@@ -42,9 +42,9 @@ class MenuActivity : AppCompatActivity() {
                 R.id.nav_message -> Toast.makeText(applicationContext, "Clicked Home", Toast.LENGTH_SHORT).show()
                 R.id.nav_login -> Toast.makeText(applicationContext, "Clicked Home", Toast.LENGTH_SHORT).show()
                 R.id.nav_share -> Toast.makeText(applicationContext, "Clicked Home", Toast.LENGTH_SHORT).show()
-                R.id.nav_learn -> Toast.makeText(applicationContext, "Clicked Home", Toast.LENGTH_SHORT).show()
-                R.id.nav_word -> replaceFragment(WordsFragment(), it.title.toString())
-                R.id.nav_last -> Toast.makeText(applicationContext, "Clicked Home", Toast.LENGTH_SHORT).show()
+                R.id.nav_new_words -> Toast.makeText(applicationContext, "Clicked Home", Toast.LENGTH_SHORT).show()
+                R.id.nav_known_words -> replaceFragment(KnownWordsFragment(), it.title.toString())
+                R.id.nav_all_words -> Toast.makeText(applicationContext, "Clicked Home", Toast.LENGTH_SHORT).show()
             }
 
             true
