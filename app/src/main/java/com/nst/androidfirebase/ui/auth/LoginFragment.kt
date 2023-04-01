@@ -51,13 +51,13 @@ class LoginFragment : BaseFragment() {
     }
 
     private fun checkData() {
-        val email = binding.editEmail.toString().trim()
-        val password = binding.editPassword.toString().trim()
+        val email = binding.editEmail.text.toString().trim()
+        val password = binding.editPassword.text.toString().trim()
 
-        if (email.isNotBlank()) {
-            if (password.isNotBlank()) {
+        if (email.isNotEmpty()) {
+            if (password.isNotEmpty()) {
 
-                hideKeyboard()
+//                hideKeyboard()
                 binding.progressBar.isVisible = true
 
                 loginUser(email, password)
