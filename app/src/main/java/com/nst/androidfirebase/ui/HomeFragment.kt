@@ -39,7 +39,7 @@ class HomeFragment : Fragment() {
     }
 
     private fun initClicks() {
-        binding.ibLogout.setOnClickListener { logoutApp() }
+//        binding.ibLogout.setOnClickListener { logoutApp() }
     }
 
     private fun logoutApp() {

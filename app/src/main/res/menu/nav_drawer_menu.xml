@@ -54,4 +54,9 @@
 
     </item>
 
+    <item
+        android:id="@+id/ibLogout"
+        android:icon="@drawable/baseline_logout"
+        android:title="Logout"/>
+
 </menu>
