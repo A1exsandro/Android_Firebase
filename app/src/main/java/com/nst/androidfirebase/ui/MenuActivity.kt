@@ -3,17 +3,26 @@ package com.nst.androidfirebase.ui
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
+import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.NavHostFragment.Companion.findNavController
+import androidx.navigation.fragment.findNavController
 import com.google.android.material.navigation.NavigationView
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 import com.nst.androidfirebase.R
 import com.nst.androidfirebase.databinding.ActivityMenuBinding
+import com.nst.androidfirebase.ui.auth.LoginFragment
 
 class MenuActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMenuBinding
+
+    private lateinit var auth: FirebaseAuth
 
     lateinit var toggle: ActionBarDrawerToggle
     lateinit var drawerLayout: DrawerLayout
@@ -22,6 +31,8 @@ class MenuActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMenuBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        auth = Firebase.auth
 
         drawerLayout = binding.drawerLayout
         val navView : NavigationView = binding.navView
@@ -45,10 +56,16 @@ class MenuActivity : AppCompatActivity() {
                 R.id.nav_new_words -> replaceFragment(NewWordsFragment(), it.title.toString())
                 R.id.nav_known_words -> replaceFragment(KnownWordsFragment(), it.title.toString())
                 R.id.nav_all_words -> Toast.makeText(applicationContext, "Clicked Home", Toast.LENGTH_SHORT).show()
+                R.id.nav_logout -> logoutApp()
             }
 
             true
         }
+    }
+
+    private fun logoutApp() {
+        auth.signOut()
+        replaceFragment(LoginFragment(), "Login")
     }
 
     private fun replaceFragment(fragment: Fragment, title: String) {
