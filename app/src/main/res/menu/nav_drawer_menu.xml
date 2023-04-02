@@ -38,16 +38,16 @@
 
             <group>
                 <item
-                    android:id="@+id/nav_learn"
-                    android:title="Learn"/>
+                    android:id="@+id/nav_new_words"
+                    android:title="New Words"/>
 
                 <item
-                    android:id="@+id/nav_word"
-                    android:title="Word"/>
+                    android:id="@+id/nav_known_words"
+                    android:title="Known Word"/>
 
                 <item
-                    android:id="@+id/nav_last"
-                    android:title="Last"/>
+                    android:id="@+id/nav_all_words"
+                    android:title="All Words"/>
             </group>
 
         </menu>
