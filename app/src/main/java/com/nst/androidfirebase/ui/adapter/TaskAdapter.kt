@@ -23,7 +23,6 @@ class TaskAdapter(
         val SELECT_DETAILS: Int = 4
         val SELECT_NEXT: Int = 5
     }
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         return MyViewHolder(
             ItemAdapterBinding.inflate(
@@ -33,7 +32,6 @@ class TaskAdapter(
             )
         )
     }
-
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val task = taskList[position]
         
