@@ -45,7 +45,6 @@ class MenuActivity : AppCompatActivity() {
             it.isChecked = true
 
             when(it.itemId) {
-
                 R.id.nav_home -> replaceFragment(HomeFragment(), it.title.toString())
                 R.id.nav_message -> Toast.makeText(applicationContext, "Clicked Home", Toast.LENGTH_SHORT).show()
                 R.id.nav_login -> Toast.makeText(applicationContext, "Clicked Home", Toast.LENGTH_SHORT).show()
