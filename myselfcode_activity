@@ -1,0 +1,62 @@
+
+
+class MainActivity : AppCompatActivity() {
+
+    private lateinit var cardView: CardView
+    private lateinit var ivFlipCard: ImageView
+    private var isFrontVisible = true
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+
+        // Referenciar os elementos de interface do usuário
+        cardView = findViewById(R.id.cardView)
+        ivFlipCard = findViewById(R.id.ivFlipCard)
+
+        // Adicionar o Listener de clique ao botão de virada do cartão
+        ivFlipCard.setOnClickListener {
+            flipCard()
+        }
+    }
+
+    private fun flipCard() {
+        // Criar um objeto AnimatorSet para agrupar as animações de virada de cartão
+        val set = AnimatorSet().apply {
+            playSequentially(
+                // Animação de virada de cartão da frente para o verso
+                AnimatorInflater.loadAnimator(
+                    this@MainActivity,
+                    R.anim.card_flip
+                ),
+                // Animação de virada de cartão do verso para a frente
+                AnimatorInflater.loadAnimator(
+                    this@MainActivity,
+                    R.anim.card_flip_reverse
+                )
+            )
+        }
+
+        // Definir o Listener de término da animação de virada de cartão
+        set.addListener(object : AnimatorListenerAdapter() {
+            override fun onAnimationEnd(animation: Animator?) {
+                // Alternar a visibilidade do conteúdo frontal e traseiro do flash card
+                isFrontVisible = !isFrontVisible
+                cardView.getChildAt(if (isFrontVisible) 0 else 1).visibility =
+                    if (isFrontVisible) View.VISIBLE else View.INVISIBLE
+
+                // Definir a visibilidade do botão de virada do cartão
+                ivFlipCard.rotationY = if (isFrontVisible) 180f else 0f
+                ivFlipCard.visibility = View.VISIBLE
+            }
+
+            override fun onAnimationStart(animation: Animator?) {
+                // Definir a visibilidade do botão de virada do cartão
+                ivFlipCard.visibility = View.INVISIBLE
+            }
+        })
+
+        // Iniciar a animação de virada de cartão
+        set.start()
+    }
+}
